@@ -78,3 +78,14 @@ Proje bir `Dockerfile` ve `Procfile` içerir; Railway, Fly.io, Render gibi hizme
 1. Kurulumdan **önce** veya hemen sonra Ayarlar → Güvenlik'ten şifre belirleyin.
 2. Hizmette kalıcı bir disk (volume) oluşturup `/data` yoluna bağlayın; veritabanı `SIRKECI_DB=/data/sirkeci.db` dosyasında tutulur. Kalıcı disk olmazsa her yeniden başlatmada veriler silinir.
 3. Hizmetin verdiği HTTPS adresini iPhone'da Safari ile açıp "Ana Ekrana Ekle" deyin.
+
+### Railway adımları
+
+1. railway.com → **New Project → Deploy from GitHub repo** → `berkesun/sirkecikebapotomasyon` seçin. Dockerfile otomatik tanınır (`railway.json` ile ayarlıdır).
+2. Servise tıklayın → **Variables** sekmesinde bir şey eklemeniz gerekmez (`PORT` Railway tarafından verilir).
+3. Servis kutusuna sağ tıklayın → **Add Volume** → mount path: `/data`. Volume eklendikten sonra servis yeniden dağıtılır.
+4. **Settings → Networking → Generate Domain** ile adres alın (ör. `https://sirkeci.up.railway.app`).
+5. **Settings → Region**: Europe (Amsterdam) seçin; **App Sleeping** kapalı kalsın.
+6. Adresi açın, Ayarlar → Güvenlik'ten şifre koyun, sonra iPhone'da ana ekrana ekleyin.
+
+GitHub'a her `git push` sonrasında Railway yeniden dağıtır; veriler volume'da kaldığı için kaybolmaz.
