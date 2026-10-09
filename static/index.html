@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sirkeci Kebap · Portal</title>
+<meta name="description" content="Sirkeci Kebap gelir ve gider takip portalı">
+<meta name="theme-color" content="#f4f3ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Sirkeci">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+<link rel="stylesheet" href="/static/style.css?v=2">
+<script>
+  /* tema tercihini ilk boyamadan önce uygula (yanıp sönmeyi önler) */
+  try {
+    var t = localStorage.getItem('tema');
+    if (t === 'acik') document.documentElement.dataset.theme = 'light';
+    else if (t === 'koyu') document.documentElement.dataset.theme = 'dark';
+  } catch (e) {}
+</script>
+</head>
+<body>
+<div id="app" class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="topbar" id="topbar"></header>
+    <main class="content" id="icerik"><div class="empty">Yükleniyor…</div></main>
+  </div>
+  <nav class="tabbar" id="tabbar" aria-label="Ana menü"></nav>
+</div>
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+<script src="/static/util.js?v=2"></script>
+<script src="/static/charts.js?v=2"></script>
+<script src="/static/app.js?v=2"></script>
+</body>
+</html>
